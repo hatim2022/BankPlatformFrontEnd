@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BankPlatformFrontEnd';
   // user = "user";
-  user=null;
+  user = null;
 }

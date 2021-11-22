@@ -6,11 +6,11 @@
               <h5 class="card-title text-center mb-5 fw-light fs-5">Welcome</h5>
               <form #f="ngForm" (ngSubmit)="login()" >
                 <div class="form-floating mb-3">
-                  <input  name="email" class="form-control" placeholder="Email Address">
+                  <input [(ngModel)]="email" name="email" class="form-control" placeholder="Email Address">
                   <label for="floatingInput">Email</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input  name="password" type="password" class="form-control" placeholder="password">
+                  <input  [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="password">
                   <label for="floatingPassword">Password</label>
                 </div>
                 <div class="d-grid">
