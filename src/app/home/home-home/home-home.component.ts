@@ -36,13 +36,13 @@ export class HomeHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-   
-   
   }
 
   onSubmit(){
-   
   }
+
+ gotoTransaction(){
+   this.router.navigateByUrl("/transactions")
+ }
 
 }
