@@ -1,2 +1,52 @@
+<div>
+    <br>
+    <div class="row mb-2">
+      <div class="col-md-5">
+        <h2>Checking Account</h2>
+        <hr>
+        <table class="table">
+          <tr bgcolor="AliceBlue">
+            <th>
+              Date and Time
+            </th>
+            <th>
+              Amount
+            </th>
+          </tr>
+          <tr *ngFor="let transaction of checkingTransactions">
+            <td>
+              {{ transaction.timeStamp }}
+            </td>
+            <td>
+              {{ transaction.transactionAmount }}
+            </td>
+          </tr>
+        </table>
+      </div>
 
-<div>transactions</div>
+      <div class="col-md-5">
+        <h2>Savings Account</h2>
+        <hr>
+        <table class="table">
+          <tr bgcolor="AliceBlue">
+            <th>
+              Date and Time
+            </th>
+            <th>
+              Amount
+            </th>
+          </tr>
+          <tr *ngFor="let transaction of savingsTransactions">
+            <td>
+              {{ transaction.timeStamp }}
+            </td>
+            <td>
+              {{ transaction.transactionAmount }}
+            </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+</div>

@@ -17,9 +17,13 @@ export class MainServiceService {
   public getMyAccounts(userId){
     return this.http.get('http://localhost:8080/api/accounts?userId=' + userId);
   }
-  
+
   public getAccountByUserId(id){
     return this.http.get('http://localhost:8080/api/accounts?userId='+id+'');
+  }
+
+  public getTransactionsById(id){
+    return this.http.get('http://localhost:8080/api/transactions?userId='+id);
   }
 
 }
