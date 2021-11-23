@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MainServiceService } from 'src/app/service/main-service.service';
-import { User } from 'src/app/user.model';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-login-home',
@@ -15,8 +15,8 @@ export class LoginHomeComponent implements OnInit {
 
   email:string;
   password:string;
-  users:User[];
   currentUser:User;
+  users:User[];
 
   ngOnInit(): void {
     const userObservable = this.service.getUsers();
@@ -30,16 +30,12 @@ export class LoginHomeComponent implements OnInit {
   login(){
     this.email=this.signupForm.value.email;
     this.password=this.signupForm.value.password;
-
     this.currentUser=this.users.find(usr=> usr.email==this.email);
-
-    console.log(this.currentUser);
     if(this.currentUser!=null && this.currentUser.password==this.password){
-       this.router.navigateByUrl("/home")
+      localStorage.setItem('currentUser', this.currentUser.userId.toString());
+       this.router.navigateByUrl("/home",{state:this.currentUser})
     }
-
-    
-    
   }
+  
 
 }
