@@ -1,1 +1,31 @@
-<p>account-home works!</p>
+
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+              <h5 class="card-title text-center mb-5 fw-light fs-5">Transfer money </h5>
+              <form #f="ngForm" (ngSubmit)="onSubmit()" >
+                <div class="form-floating mb-3">
+                    From Account :
+                    <select name="originAccount" >
+                        <option value="{{account.accountNumber}}" *ngFor="let account of accounts">{{account.accountType}} ({{account.balance}})$ </option>
+                      </select>
+                </div>
+                <div class="form-floating mb-3">
+                    To Account :
+                    <select name="destinationAccount" >
+                        <option value="{{account.accountNumber}}" *ngFor="let account of accounts">{{account.accountType}}  ({{account.balance}})$ </option>
+                      </select>
+                </div>
+                <div>
+                 Amount :    <input type="number" placeholder="Amount">
+                </div>
+                <div class="d-grid">
+                  <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" > Transfer </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
