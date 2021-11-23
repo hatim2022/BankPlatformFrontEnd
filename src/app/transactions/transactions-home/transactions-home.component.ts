@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Account } from 'src/app/model/account.model';
+import { MainServiceService } from 'src/app/service/main-service.service';
 
 @Component({
   selector: 'app-transactions-home',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsHomeComponent implements OnInit {
 
-  constructor() { }
+  userData;
+  accounts:Account[];
+  
+  constructor(private route: ActivatedRoute,private service: MainServiceService,private router:Router) {
+
+  }
 
   ngOnInit(): void {
   }
