@@ -38,7 +38,11 @@ export class AccountHomeComponent implements OnInit {
     console.log(this.amount);
 
     this.service.transferMoney(this.originAccount,this.destinationAccount,this.amount).subscribe(success => {
-      console.log(success);
+      
+      this.accounts.find(acc => acc.accountNumber==parseInt(this.originAccount)).balance-=this.amount;
+      this.accounts.find(acc => acc.accountNumber==parseInt(this.destinationAccount)).balance+=this.amount;
+
+
   }, error => {
       console.log(error);
   });
