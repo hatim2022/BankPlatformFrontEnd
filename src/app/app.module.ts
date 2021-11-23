@@ -7,12 +7,15 @@ import { HomeModule } from './home/home.module';
 import { AccountModule } from './account/account.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { LoginModule } from './login/login.module';
+import { CreateModule } from './create/create.module';
+import { DepositModule } from './deposit/deposit.module';
+import { LogModule } from './log/log.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,8 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
     AccountModule,
     TransactionsModule,
     LoginModule,
+    CreateModule,
+    DepositModule,
+    LogModule,
     HttpClientModule
-   
+
   ],
   providers: [],
   bootstrap: [AppComponent]

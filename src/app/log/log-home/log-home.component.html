@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <h5 class="card-title text-center mb-5 fw-light fs-5">Transactions Created</h5>
+    <form #f="ngForm" (ngSubmit)="createTransactions()" >
+      <div class="d-grid">
+        <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" >Process Transactions</button>
+      </div>
+    </form>
+    <hr>
+    {{ newCheckTransactionPost | async | json }}
+    {{ newSavingsTransactionPost | async | json }}
+
+    <br><button class="btn btn-primary btn-login text-uppercase fw-bold" *ngIf="isSubmit" (click)="onBack()">Continue</button>
+  </div>
+</div>

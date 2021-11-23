@@ -34,12 +34,11 @@ export class LoginHomeComponent implements OnInit {
     this.currentUser=this.users.find(usr=> usr.email==this.email);
 
     console.log(this.currentUser);
+
     if(this.currentUser!=null && this.currentUser.password==this.password){
        this.router.navigateByUrl("/home")
     }
 
-    
-    
   }
 
 }

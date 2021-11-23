@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <h5 class="card-title text-center mb-5 fw-light fs-5">Checking and Savings Accounts Created</h5>
+    <form #f="ngForm" (ngSubmit)="createAccounts()" >
+
+      <div class="form-floating mb-3">
+        <input [(ngModel)]="depositChecking" name="depositChecking" class="form-control" placeholder="Deposit">
+        <label for="floatingInput">Deposit Checking Amount</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input [(ngModel)]="depositSavings" name="depositSavings" class="form-control" placeholder="Deposit">
+        <label for="floatingInput">Deposit Savings Amount</label>
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" >Continue</button>
+      </div>
+    </form>
+    <hr>
+    {{ newCheckPost | async | json }}
+    {{ newSavingPost | async | json }}
+
+    <br><button class="btn btn-primary btn-login text-uppercase fw-bold" *ngIf="isSubmit" (click)="onBack()">Continue</button>
+  </div>
+</div>
