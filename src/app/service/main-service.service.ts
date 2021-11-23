@@ -6,6 +6,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class MainServiceService {
 
+
+
   constructor(private http: HttpClient) { }
 
   public getUsers(){
@@ -25,5 +27,12 @@ export class MainServiceService {
   public getTransactionsById(id){
     return this.http.get('http://localhost:8080/api/transactions?userId='+id);
   }
+
+  public transferMoney(originAccount,destinationAccount,amount){
+   return this.http.put('http://localhost:8080/api/transfer', null,{
+   params:
+   { fromAccountNumber: originAccount, toAccountNumber: destinationAccount,amount:amount }
+  });
+}
 
 }

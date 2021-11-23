@@ -6,19 +6,20 @@
               <h5 class="card-title text-center mb-5 fw-light fs-5">Transfer money </h5>
               <form #f="ngForm" (ngSubmit)="onSubmit()" >
                 <div class="form-floating mb-3">
-                    From Account :
-                    <select name="originAccount" >
+                  <div> From Account : </div>
+                    <select name="originAccount" id="originAccount"  (ngModel)="originAccount">
                         <option value="{{account.accountNumber}}" *ngFor="let account of accounts">{{account.accountType}} ({{account.balance}})$ </option>
                       </select>
                 </div>
                 <div class="form-floating mb-3">
-                    To Account :
-                    <select name="destinationAccount" >
+                    <div> To Account : </div>
+                    <select name="destinationAccount" (ngModel)="destinationAccount" >
                         <option value="{{account.accountNumber}}" *ngFor="let account of accounts">{{account.accountType}}  ({{account.balance}})$ </option>
                       </select>
                 </div>
-                <div>
-                 Amount :    <input type="number" placeholder="Amount">
+                <div class="form-floating mb-3">
+                  <input type="number" name="amount" (ngModel)="amount" placeholder="Amount" class="form-control">
+                  <label for="floatingInput">Amount</label>
                 </div>
                 <div class="d-grid">
                   <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" > Transfer </button>
@@ -28,4 +29,4 @@
           </div>
         </div>
       </div>
-  
+

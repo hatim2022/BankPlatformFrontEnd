@@ -13,25 +13,35 @@ export class AccountHomeComponent implements OnInit {
 
   userData;
   accounts:Account[];
-  originAccount;
-  destinationAccount;
-  
+  originAccount:string;
+  destinationAccount:string;
+  amount:number;
+
   constructor(private route: ActivatedRoute,private service: MainServiceService,private router:Router) {
     this.userData = this.router.getCurrentNavigation().extras.state;
     const userObservable = this.service.getAccountByUserId(localStorage.getItem('currentUser'));
     userObservable.subscribe((accountData :Account[])=>{
       this.accounts=accountData;
     });
-     
+
   }
-  
-  
+
+
   @ViewChild('f', { static: false }) Form: NgForm;
 
   onSubmit(){
     this.originAccount=this.Form.value.originAccount;
     this.destinationAccount=this.Form.value.destinationAccount;
-    console.log(this.originAccount)
+    this.amount=this.Form.value.amount;
+    console.log(this.originAccount);
+    console.log(this.destinationAccount);
+    console.log(this.amount);
+
+    this.service.transferMoney(this.originAccount,this.destinationAccount,this.amount).subscribe(success => {
+      console.log(success);
+  }, error => {
+      console.log(error);
+  });
   }
 
   ngOnInit(): void {
