@@ -11,8 +11,24 @@
             </h3>
             <div class="mb-1 text-muted"> Account Number : {{userCheckingAccount.accountNumber}} </div>
             
-             <button type="submit" class="btn btn-primary" (click)="gotoTransaction()">Make a transaction </button>
-          </div>
+             <button type="submit" class="btn btn-primary" (click)="div1Function()">Make a transaction </button>
+      
+             <form #f="ngForm" (ngSubmit)="transferToSaving()" *ngIf="div1" >
+              <div class="form-floating mb-3">
+                  <div> To Account : </div>
+                  <select name="destinationAccount" (ngModel)="destinationAccount" >
+                      <option value="{{userSavingAccount.accountNumber}}" >{{userSavingAccount.accountNumber}} : {{userSavingAccount.accountType}}  ({{userSavingAccount.balance}})$ </option>
+                    </select>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" name="amount1" [(ngModel)]="amount1" placeholder="Amount" class="form-control">
+                <label for="floatingInput">Amount</label>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" > Transfer </button>
+              </div>
+            </form>
+            </div>
         </div>
       </div>
       <div class="col-md-6">
@@ -23,7 +39,24 @@
               <a class="text-dark"  > {{userSavingAccount.balance}} $ </a>
             </h3>
             <div class="mb-1 text-muted">Account Number : {{userSavingAccount.accountNumber}}</div>
-            <button type="submit" class="btn btn-primary" (click)="gotoTransaction()">Make a transaction </button>
+           <button type="submit" class="btn btn-primary" (click)="div2Function()">Make a transaction </button>
+         
+           <form #f2="ngForm" (ngSubmit)="transferToChecking()" *ngIf="div2" >
+            <div class="form-floating mb-3">
+                <div> To Account : </div>
+                <select name="destinationAccount" (ngModel)="destinationAccount" >
+                    <option value="{{userCheckingAccount.accountNumber}}" >{{userCheckingAccount.accountNumber}} : {{userCheckingAccount.accountType}}  ({{userCheckingAccount.balance}})$ </option>
+                  </select>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" name="amount2" [(ngModel)]="amount2" placeholder="Amount" class="form-control">
+              <label for="floatingInput">Amount</label>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" > Transfer </button>
+            </div>
+          </form>
+          
           </div>
         </div>
       </div>

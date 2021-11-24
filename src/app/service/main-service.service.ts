@@ -20,6 +20,10 @@ export class MainServiceService {
     return this.http.get('http://localhost:8080/api/accounts?userId=' + userId);
   }
 
+  public getExternalAccounts(userId){
+    return this.http.get('http://localhost:8080/api/externalaccounts?userId=' + userId);
+  }
+
   public getAccountByUserId(id){
     return this.http.get('http://localhost:8080/api/accounts?userId='+id+'');
   }
@@ -34,5 +38,6 @@ export class MainServiceService {
    { fromAccountNumber: originAccount, toAccountNumber: destinationAccount,amount:amount }
   });
 }
+
 
 }

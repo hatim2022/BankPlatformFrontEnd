@@ -13,16 +13,26 @@ export class AccountHomeComponent implements OnInit {
 
   userData;
   accounts:Account[];
+  externalAccounts:Account[];
   originAccount:string;
   destinationAccount:string;
   amount:number;
+  userid:any;
 
   constructor(private route: ActivatedRoute,private service: MainServiceService,private router:Router) {
     this.userData = this.router.getCurrentNavigation().extras.state;
-    const userObservable = this.service.getAccountByUserId(localStorage.getItem('currentUser'));
-    userObservable.subscribe((accountData :Account[])=>{
+    this.userid=localStorage.getItem('currentUser')
+    const userAccountObservable = this.service.getAccountByUserId(this.userid);
+    userAccountObservable.subscribe((accountData :Account[])=>{
       this.accounts=accountData;
     });
+
+    const accountObservable = this.service.getExternalAccounts(this.userid);
+    accountObservable.subscribe((accountData :Account[])=>{
+      this.externalAccounts=accountData;
+    });
+
+
 
   }
 
@@ -40,13 +50,13 @@ export class AccountHomeComponent implements OnInit {
     this.service.transferMoney(this.originAccount,this.destinationAccount,this.amount).subscribe(success => {
       
       this.accounts.find(acc => acc.accountNumber==parseInt(this.originAccount)).balance-=this.amount;
-      this.accounts.find(acc => acc.accountNumber==parseInt(this.destinationAccount)).balance+=this.amount;
-
+      this.externalAccounts.find(acc => acc.accountNumber==parseInt(this.destinationAccount)).balance+=this.amount;
 
   }, error => {
       console.log(error);
   });
   }
+
 
   ngOnInit(): void {
   }

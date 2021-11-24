@@ -8,13 +8,13 @@
                 <div class="form-floating mb-3">
                   <div> From Account : </div>
                     <select name="originAccount" id="originAccount"  (ngModel)="originAccount">
-                        <option value="{{account.accountNumber}}" *ngFor="let account of accounts">{{account.accountType}} ({{account.balance}})$ </option>
+                        <option value="{{account.accountNumber}}" *ngFor="let account of accounts"> {{account.accountNumber}} : {{account.accountType}} ({{account.balance}})$ </option>
                       </select>
                 </div>
                 <div class="form-floating mb-3">
                     <div> To Account : </div>
                     <select name="destinationAccount" (ngModel)="destinationAccount" >
-                        <option value="{{account.accountNumber}}" *ngFor="let account of accounts">{{account.accountType}}  ({{account.balance}})$ </option>
+                        <option value="{{account.accountNumber}}" *ngFor="let account of externalAccounts">{{account.accountNumber}} : {{account.accountType}}  ({{account.balance}})$ </option>
                       </select>
                 </div>
                 <div class="form-floating mb-3">
