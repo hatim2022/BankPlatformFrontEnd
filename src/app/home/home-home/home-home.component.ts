@@ -34,9 +34,9 @@ export class HomeHomeComponent implements OnInit {
     userObservable.subscribe((accountData :Account[])=>{
       this.accounts=accountData;
       this.userSavingAccount=this.accounts.find(acc => acc.accountType=="saving");
-      this.userCheckingAccount=this.accounts.find(acc=> acc.accountType=="checking");  
+      this.userCheckingAccount=this.accounts.find(acc=> acc.accountType=="checking");
     });
-     
+
   }
 
   ngOnInit(): void {
