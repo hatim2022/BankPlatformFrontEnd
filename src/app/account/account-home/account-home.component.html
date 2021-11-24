@@ -13,9 +13,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <div> To Account : </div>
-                    <select name="destinationAccount" (ngModel)="destinationAccount" >
-                        <option value="{{account.accountNumber}}" *ngFor="let account of externalAccounts">{{account.accountNumber}} : {{account.accountType}}  ({{account.balance}})$ </option>
-                      </select>
+                   <input type="text" name="destinationAccount" (ngModel)="destinationAccount">
                 </div>
                 <div class="form-floating mb-3">
                   <input type="number" name="amount" (ngModel)="amount" placeholder="Amount" class="form-control">
