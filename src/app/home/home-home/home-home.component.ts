@@ -40,8 +40,8 @@ export class HomeHomeComponent implements OnInit {
   onSubmit(){
   }
 
- gotoTransfer(){
-   this.router.navigateByUrl("/account")
+ gotoTransaction(){
+   this.router.navigateByUrl("/transactions")
  }
 
 }
